@@ -25,15 +25,46 @@ filetype plugin on
 " Custom keys
 let mapleader=","
 
+" spelling stuff
+map <F6> <Esc>:setlocal spell spelllang=en_us<CR>
+map <F7> <Esc>:setlocal nospell<CR>
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
+
 " Split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Buffer navigation
-nnoremap <leader><Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+" tab will go between parens
+nnoremap <tab> %
+vnoremap <tab> %
+
+" when typing jj in insert mode, go back to normal mode
+inoremap jj <ESC>
+
+" upper/lower word
+nmap <leader>u mQviwU`Q
+nmap <leader>l mQviwu`Q
+
+" upper/lower first char of word
+nmap <leader>U mQgewvU`Q
+nmap <leader>L mQgewvu`Q
+
+" Next buffer
+nmap <silent> ,. :bnext<CR>
+" Previous buffer
+nmap <silent> ,m :bprev<CR>
+
+" toggle whitespace view
+nmap <silent> <leader>s :set nolist!<CR>
 
 " Strips whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
