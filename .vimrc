@@ -7,7 +7,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'flazz/vim-colorschemes'  
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-fugitive'
@@ -15,6 +14,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -89,6 +89,7 @@ nnoremap <leader>1 :colorscheme zenburn<cr>
 nnoremap <leader>2 :colorscheme github<cr>
 nnoremap <leader>3 :colorscheme atom<cr>
 nnoremap <leader>4 :colorscheme wombat256<cr>
+nnoremap <leader>5 :colorscheme molokai<cr>
 
 " OPTIONS
 set tabstop=4
@@ -115,14 +116,16 @@ set relativenumber
 set incsearch
 set showmatch
 set hlsearch
+nnoremap <F3> :set hlsearch!<CR>
 
 " Wrap
 set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=120
+highlight ColorColumn ctermbg=darkgray
 "set list
-"set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬
 
 " Disable arrow keys
 nnoremap <up> <nop>
